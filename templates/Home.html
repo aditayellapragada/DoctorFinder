@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/static/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1 class="logo">DOCTOR FINDER</h1>
+
+        <a href="/drop" class = "HomeForm">Logout </a>
+        <a href="/display" class = "HomeForm">Manage Account </a>
+        <a name="user" class = "HomeForm">{{user}}</a>
+
+        <form class = "HomeForm" action="/search" method="POST">
+
+            <input type="text" class="searchTerm" name="searchkey" placeholder="Search by specialization" size="50">
+            <button  type="submit" class="searchButton">Search</button>
+        </form>
+    </div>
+
+    <p>Below are the details of the doctors.</p>
+
+    <table>
+        <tr>
+            <th>Doctor Name</th>
+            <th>Specialization</th>
+            <th>Contact Number</th>
+            <th>Rating</th>
+            <th>Location</th>
+            <th>Consultation type</th>
+        </tr>
+        {% for Doctor in UserData %}
+            <tr>
+                <td> {{  Doctor["doctorname"] }}</td>
+                <td> {{  Doctor["specialization"] }}</td>
+                <td> {{  Doctor["contactnumber"] }}</td>
+                <td> {{  Doctor["ratings"] }}</td>
+                <td> {{  Doctor["Locality"] }}</td>
+                <td> {{  Doctor["Consultation"] }}</td>
+            <tr>
+        {% endfor %}
+
+    </table>
+
+    <footer>
+        All rights reserved Group 2
+    </footer>
+
+</body>
+</html>
